@@ -51,5 +51,6 @@ Analysis: I predicted that the male mortality rate because of cardiovascular dis
 mortality rate. But according to my dataset, females have higher mortality rate as compared to males.
 
 Conclusion: at the starting of this project, I predicted that there would be higher number of the male individuals
-that suffer from heart diseases as compared to the female individuals. However, after analyzing all the factors in the dataset, it is concluded that there is higher female mortality rate than the males.
+that suffer from heart diseases as compared to the female individuals. However, after analyzing all the factors in the 
+dataset, it is concluded that there is higher female mortality rate than the males.
 
