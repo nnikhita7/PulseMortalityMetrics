@@ -1,2 +1,56 @@
-Hypothesis- Numerous factors contribute to the escalating mortality rates from heart disease among individuals aged 35 in the United States, including gender, race, age, and geographical location. However, upon thorough analysis, it becomes evident that men face a disproportionately higher risk of encountering these cardiovascular challenges compared to women. This conclusion is supported by data indicating that the greatest variance in heart disease prevalence among individuals aged 35 in the US is primarily driven by gender, overshadowing considerations related to race or other demographic factors.
-Problem statement- At the age of 35, the US citizens tend to have various health issues especially heart disease. This has various reasons behind it. One major reason is the stress of taking care of their elderly as well as their children, they have double duties in such case. I think they are known as sandwich generation. It is also gender specific as men tend to have greater risk of heart disease as compared to women. This is becuase of the presence of estrogen (reprodcutive hormone) in females. Estrogent protects the heart and reduces the risk factors as it lowers the level of bad cholesterol (LDL) and increases the levels of good cholesterol (HDL). However, as estrogen levels decreases after menopause, woment start having more heart diseases. But at the same time, women tend to have differnt symptoms realted to heart disease at this age that includes nausea, fatigue, shortness of breath etc.
+Project Title: Pulse Mortality Matrix
+
+Hypothesis: There are various factors contributing to the escalating mortality rates from heart disease
+among individuals aged(35+) in the United States, including gender, race, age, and geographical location. 
+However, upon thorough analysis, it becomes evident that men face a disproportionately higher risk of 
+encountering cardiovascular challenges compared to women.
+
+Problem Statement: At the age of 35 and older, US citizens tend to have various health issues, especially 
+heart disease. This can be attributed to several factors, one of which is the stress of being part of the
+"sandwich generation," where individuals are responsible for caring of both their elderly parents and their
+own children simultaneously. This stress is gender-specific,as men tend to have a greater risk of heart disease
+compared to women. Estrogen, a reproductive hormone present in females,plays a protective role for the heart by
+reducing risk factors such as lowering the level of bad cholesterol (LDL) and increasing the levels of good
+cholesterol (HDL). However, as estrogen levels decrease after menopause, women become more susceptible to
+heart diseases. Additionally, women tend to experience different symptoms related to heart disease at this age,
+including ausea, fatigue, and shortness of breath.
+
+How Data will be Utilized: I will use the data to demonstrate that after controlling for race and other 
+demographic factors,there are more heart disease mortalities in men at age 35 than in women. By analyzing the 
+mortality rates from heart disease mong individuals aged 35, while controlling for variables such as race, age,
+and geographical location, I aim to highlight the disproportionate risk faced by men in developing heart diseases
+compared to women.This analysis will provide valuable insights into the gender-specific differences in heart 
+disease mortality rates and help in understanding the underlying factors contributing to these differences.
+
+Data source: I used data from data.gov and the name of the data catalog is 'Heart Disease Mortality Data Among US
+Adults (35+) by State/ Territory and County’, which was organized by U.S. Department of Health and Human Services
+and published by Center of Diseases and Prevention. This data provides information on heart mortality rates along
+with their gender, geographical area, and race.
+
+Dataset from source: 
+https://data.cdc.gov/api/views/i2vk-mgdh/rows.csv?accessType=DOWNLOAD
+
+Curl: I downloaded the csv file from the data source, and I uploaded it in GitHub, from where I made this curl. 
+https://github.com/nnikhita7/PulseMortalityMetrics/raw/main/Heart_Disease_Mortality_Data_Among_US_Adults__35___by_State
+_Territory_and_County.csv
+
+Inspect data using head and select column: I used head command to inspect the data set and selected the columns
+– LocationAbbr, Data_value, Stratification1, Stratification2.
+ 
+Used awk command to process data: This is the awk command that I used to print the selected columns. However,I 
+faced a problem while using this - my csv file was already separated, but when I was using this command, it kept
+on changing the column heading, so I changed them manually. 
+awk -F ',' '{print $2 "," $8 "," $15 "," $17}' Heart_Disease_Mortality_Data_Among_US_Adults__35___by_State
+_Territory_and_County.csv > selected_columns.csv
+
+Grep and count command: I used ‘grep – c Male selected_columns.csv’ command to calculate the number of male 
+members affected from heart/cardiovascular diseases which was 9885 and for females, it was 9928. For the race, 
+black number was 6038, Hispanic was 5232, and white was 6886. 
+
+Analysis: I predicted that the male mortality rate because of cardiovascular disease would be more than the female
+mortality rate. But according to my dataset, females have higher mortality rate as compared to males.
+
+Conclusion: at the starting of this project, I predicted that there would be higher number of the male individuals
+that suffer from heart diseases as compared to the female individuals. However, after analyzing all the factors in the 
+dataset, it is concluded that there is higher female mortality rate than the males.
+
