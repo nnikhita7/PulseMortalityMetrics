@@ -1,11 +1,33 @@
-The initial data analysis using the grep command revealed that there were 9885 males, 9928 females, and an overall count of 16293 individuals. However, a more in-depth examination through bar graph visualization using pandas and matplotlib uncovered additional insights. The analysis grouped the data by gender (Stratification 1), race (Stratification 2), and locationAbbr, calculating the mean of data_values. This revealed that Maryland (MD) had a higher heart disease mortality rate compared to other states, suggesting a need for targeted interventions in Maryland.
+Firstly, I used head command to inspect the data set and selected the columns
+– LocationAbbr, Data_value, Stratification1, Stratification2. 
 
-Furthermore, when stratifying by gender, it was found that males had a higher heart disease mortality rate than females and the overall population. This aligns with traditional understanding but provides concrete evidence from the dataset.
+Then I used awk command to print the selected columns. However,I faced a problem while 
+using this command as my csv file was already separated, but it kept on changing the column 
+heading, so I changed them manually. 
+awk -F ',' '{print $2 "," $8 "," $15 "," $17}' Heart_Disease_Mortality_Data_Among_US_Adults__35___by_State
+_Territory_and_County.csv > selected_columns.csv
 
-Moreover, stratifying by race revealed that the Black population faced a higher mortality rate compared to American Indian and Alaskan Native, Asian and Pacific Islander, Hispanic, Overall, and White populations. This underscores the presence of racial disparities in heart disease outcomes and emphasizes the urgency of tailored interventions to address these disparities.
+Following this, I used the grep command to analyze the data. It revealed the number of times 
+the words- males, females, and overall- were used in the data set i.e. 9885 males, 9928 females, 
+and overall(which indicates total number of heart disease mortality cases regardless of their 
+gender) 16293 individuals. So, I concluded that there is higher number of female mortality rate 
+as compared to males and overall.
 
-In conclusion, the comprehensive analysis highlighted the multifaceted nature of heart disease mortality, with gender, race, and geographic location playing critical roles. It underscores the need for comprehensive strategies to mitigate disparities and improve health outcomes, emphasizing the importance of addressing social determinants of health in public health interventions. Specifically, targeting interventions towards males, Black individuals, and high-risk areas like Maryland can lead to more effective prevention and management of heart disease.
+Then, I went deeper into the analysis using bar graphs created with pandas and matplotlib. 
+This showed some important insights. Firstly, Maryland had a higher rate of heart disease 
+deaths compared to other states, indicating a need for targeted interventions in that area.
 
+When I looked at gender, I found that males had a higher rate of heart disease deaths than 
+females or the overall population, which confirms my Hypothesis prediction.
+
+Analyzing by race, I discovered that Black individuals faced a higher mortality rate from 
+heart disease compared to other racial groups. This highlights the presence of racial 
+disparities in heart disease outcomes.
+
+In conclusion, my analysis emphasized the complex nature of heart disease mortality, with 
+factors like gender, race, and location playing significant roles. To address these 
+disparities, targeted interventions should focus on groups like males,Black individuals, and 
+high-risk areas such as Maryland.
 
 
 
